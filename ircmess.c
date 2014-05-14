@@ -8,7 +8,10 @@
 int l_irc_parse(lua_State *l, IRCLine * line) {
 	int i;
 
-	lua_createtable(l, 0, 4);
+	const char * arg = luaL_checkstring(l, 1);
+	line = parse_line(arg);
+
+	lua_createtable(l, 0, 3);
 
 	lua_pushstring(l, line->source);
 	lua_setfield(l, -2, "source");
@@ -16,13 +19,11 @@ int l_irc_parse(lua_State *l, IRCLine * line) {
 	lua_pushstring(l, line->verb);
 	lua_setfield(l, -2, "verb");
 
-	lua_pushinteger(l, line->argc);
-	lua_setfield(l, -2, "argc");
-
 	lua_createtable(l, line->argc, 0);
 	for (i = 0; i < line->argc; i++) {
 		lua_pushnumber(l, i+1);
 		lua_pushstring(l, line->argv[i]);
+		lua_settable(l, -3);
 	}
 	lua_setfield(l, -2, "argv");
 
