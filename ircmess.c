@@ -5,10 +5,11 @@
 
 #include "irc.h"
 
-int l_irc_parse(lua_State *l, IRCLine * line) {
+int l_irc_parse(lua_State *l) {
 	int i;
+	IRCLine * line;
 
-	const char * arg = luaL_checkstring(l, 1);
+	char * arg = luaL_checkstring(l, 1);
 	line = parse_line(arg);
 
 	lua_createtable(l, 0, 3);
@@ -26,6 +27,10 @@ int l_irc_parse(lua_State *l, IRCLine * line) {
 		lua_settable(l, -3);
 	}
 	lua_setfield(l, -2, "argv");
+
+	line_destroy(line);
+
+	free(line);
 
 	return 1;
 }
