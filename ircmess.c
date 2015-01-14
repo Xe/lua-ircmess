@@ -30,8 +30,6 @@ int l_irc_parse(lua_State *l) {
 
 	line_destroy(line);
 
-	free(line);
-
 	return 1;
 }
 
