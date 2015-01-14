@@ -1,5 +1,5 @@
-package = "lua-ircmess"
-version = "0.3-0"
+package = "ircmess"
+version = "0.4-0"
 source = {
    url = "git://github.com/Xe/lua-ircmess.git"
 }
