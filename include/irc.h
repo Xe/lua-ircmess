@@ -3,17 +3,17 @@
 #define IRC_H
 
 typedef struct {
-    char * nick;
-    char * user;
-    char * host;
-    int is_server;
+	char * nick;
+	char * user;
+	char * host;
+	int is_server;
 } Source;
 
 typedef struct {
-    char * source;
-    char * verb;
-    char ** argv;
-    int argc;
+	char * source;
+	char * verb;
+	char ** argv;
+	int argc;
 } IRCLine;
 
 char * split_out(char * string, char delim);

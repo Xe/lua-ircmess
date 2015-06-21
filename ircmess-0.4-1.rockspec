@@ -1,8 +1,10 @@
 package = "ircmess"
-version = "0.4-0"
+version = "0.4-1"
+
 source = {
    url = "git://github.com/Xe/lua-ircmess.git"
 }
+
 description = {
    summary = "A simple, no bullshit IRC parser.",
    detailed = [[
@@ -12,9 +14,11 @@ description = {
    homepage = "http://github.com/Xe/lua-ircmess",
    license = "BSD"
 }
+
 dependencies = {
    "lua >= 5.1"
 }
+
 build = {
     type = "builtin",
     modules = {
